@@ -1,9 +1,5 @@
 
-import java.util.ArrayList;
-import java.util.List;
 import javax.swing.JOptionPane;
-
-
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -18,12 +14,16 @@ public class JTicTacToe extends javax.swing.JFrame {
 
     String jugador = "X";
     String[] jugadas = new String[9];
+    boolean pantallaCompleta = false;
 
     /**
      * Creates new form calculadora
      */
     public JTicTacToe() {
         initComponents();
+        for (int i = 0; i < 9; i++) {
+            jugadas[i] = "";
+        }
     }
 
     /**
@@ -35,34 +35,25 @@ public class JTicTacToe extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jButton0 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
         txtpantalla = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setBackground(java.awt.SystemColor.activeCaption);
-        jButton1.setFont(new java.awt.Font("Felix Titling", 1, 48)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButton0.setBackground(java.awt.SystemColor.activeCaption);
+        jButton0.setFont(new java.awt.Font("Felix Titling", 1, 48)); // NOI18N
+        jButton0.setForeground(new java.awt.Color(255, 255, 255));
+        jButton0.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton0ActionPerformed(evt);
-            }
-        });
-
-        jButton2.setBackground(java.awt.SystemColor.activeCaption);
-        jButton2.setFont(new java.awt.Font("Felix Titling", 1, 48)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
             }
         });
 
@@ -71,14 +62,23 @@ public class JTicTacToe extends javax.swing.JFrame {
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jButton6.setBackground(java.awt.SystemColor.activeCaption);
+        jButton6.setFont(new java.awt.Font("Felix Titling", 1, 48)); // NOI18N
+        jButton6.setForeground(new java.awt.Color(255, 255, 255));
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
             }
         });
 
-        jButton5.setBackground(java.awt.SystemColor.activeCaption);
-        jButton5.setFont(new java.awt.Font("Felix Titling", 1, 48)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setBackground(java.awt.SystemColor.activeCaption);
+        jButton1.setFont(new java.awt.Font("Felix Titling", 1, 48)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
@@ -93,37 +93,37 @@ public class JTicTacToe extends javax.swing.JFrame {
             }
         });
 
-        jButton8.setBackground(java.awt.SystemColor.activeCaption);
-        jButton8.setFont(new java.awt.Font("Felix Titling", 1, 48)); // NOI18N
-        jButton8.setForeground(new java.awt.Color(255, 255, 255));
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        jButton4.setBackground(java.awt.SystemColor.activeCaption);
+        jButton4.setFont(new java.awt.Font("Felix Titling", 1, 48)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(255, 255, 255));
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
 
-        jButton9.setBackground(java.awt.SystemColor.activeCaption);
-        jButton9.setFont(new java.awt.Font("Felix Titling", 1, 48)); // NOI18N
-        jButton9.setForeground(new java.awt.Color(255, 255, 255));
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
+        jButton2.setBackground(java.awt.SystemColor.activeCaption);
+        jButton2.setFont(new java.awt.Font("Felix Titling", 1, 48)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
 
-        jButton11.setBackground(java.awt.SystemColor.activeCaption);
-        jButton11.setFont(new java.awt.Font("Felix Titling", 1, 48)); // NOI18N
-        jButton11.setForeground(new java.awt.Color(255, 255, 255));
-        jButton11.addActionListener(new java.awt.event.ActionListener() {
+        jButton8.setBackground(java.awt.SystemColor.activeCaption);
+        jButton8.setFont(new java.awt.Font("Felix Titling", 1, 48)); // NOI18N
+        jButton8.setForeground(new java.awt.Color(255, 255, 255));
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);
             }
         });
 
-        jButton12.setBackground(java.awt.SystemColor.activeCaption);
-        jButton12.setFont(new java.awt.Font("Felix Titling", 1, 48)); // NOI18N
-        jButton12.setForeground(new java.awt.Color(255, 255, 255));
-        jButton12.addActionListener(new java.awt.event.ActionListener() {
+        jButton5.setBackground(java.awt.SystemColor.activeCaption);
+        jButton5.setFont(new java.awt.Font("Felix Titling", 1, 48)); // NOI18N
+        jButton5.setForeground(new java.awt.Color(255, 255, 255));
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
             }
@@ -145,20 +145,20 @@ public class JTicTacToe extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
+                    .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton0, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtpantalla)
-                    .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
                     .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton12, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
-                    .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
+                    .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(28, 28, 28))
         );
         layout.setVerticalGroup(
@@ -169,23 +169,23 @@ public class JTicTacToe extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButton0, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
+                        .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
                         .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
+                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton12, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
+                        .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)))
+                        .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)))
                 .addGap(101, 101, 101))
         );
 
@@ -195,108 +195,131 @@ public class JTicTacToe extends javax.swing.JFrame {
     // Botón 0
     private void jButton0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton0ActionPerformed
         marcarJugada(0);
+        jButton0.setText(jugadas[0]);
+        calcularGanador();
     }//GEN-LAST:event_jButton0ActionPerformed
-    
+
     // Botón 1
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         marcarJugada(1);
+        jButton1.setText(jugadas[1]);
+        calcularGanador();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     // Botón 2
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         marcarJugada(2);
+        jButton2.setText(jugadas[2]);
+        calcularGanador();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     // Botón 3
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         marcarJugada(3);
+        jButton3.setText(jugadas[3]);
+        calcularGanador();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     // Botón 4
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         marcarJugada(4);
+        jButton4.setText(jugadas[4]);
+        calcularGanador();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     // Botón 5
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         marcarJugada(5);
+        jButton5.setText(jugadas[5]);
+        calcularGanador();
     }//GEN-LAST:event_jButton5ActionPerformed
 
     // Botón 6
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         marcarJugada(6);
+        jButton6.setText(jugadas[6]);
+        calcularGanador();
     }//GEN-LAST:event_jButton6ActionPerformed
 
     // Botón 7
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         marcarJugada(7);
+        jButton7.setText(jugadas[7]);
+        calcularGanador();
     }//GEN-LAST:event_jButton7ActionPerformed
 
     // Botón 8
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         marcarJugada(8);
+        jButton8.setText(jugadas[8]);
+        calcularGanador();
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void txtpantallaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtpantallaActionPerformed
-        if (jugador.equals("X")) {
-            txtpantalla.setText("JUGADOR 1");
-        }
-        else
-        {
-            txtpantalla.setText("JUGADOR 2");
-        }
+
     }//GEN-LAST:event_txtpantallaActionPerformed
 
     private void marcarJugada(int i) {
-        if (jugadas[i].equals("")) {
-            jugadas[i] = jugador;
+        if (pantallaCompleta) {
+            JOptionPane.showMessageDialog(this, "Pantalla completa. No hay más jugadas disponibles.");
+        } else {
+            if (jugadas[i].equals("")) {
+                jugadas[i] = jugador;
+            } else {
+                JOptionPane.showMessageDialog(this, "Jugada incorrecta. Casilla ya ocupada.");
+            }
         }
-        else 
-        {
-            JOptionPane.showMessageDialog(this, "Jugada incorrecta. Casilla ya ocupada.");
+    }
+
+    private void calcularGanador() {
+        String ganador = "";
+
+        if (jugadas[0].equals(jugadas[1]) && jugadas[0].equals(jugadas[2]) && !jugadas[0].equals("")) {
+            ganador = jugadas[0];
+        } else if (jugadas[3].equals(jugadas[4]) && jugadas[3].equals(jugadas[5]) && !jugadas[3].equals("")) {
+            ganador = jugadas[3];
+        } else if (jugadas[6].equals(jugadas[7]) && jugadas[6].equals(jugadas[8]) && !jugadas[6].equals("")) {
+            ganador = jugadas[6];
+        } else if (jugadas[0].equals(jugadas[3]) && jugadas[0].equals(jugadas[6]) && !jugadas[0].equals("")) {
+            ganador = jugadas[0];
+        } else if (jugadas[1].equals(jugadas[4]) && jugadas[1].equals(jugadas[7]) && !jugadas[1].equals("")) {
+            ganador = jugadas[1];
+        } else if (jugadas[2].equals(jugadas[5]) && jugadas[2].equals(jugadas[8]) && !jugadas[2].equals("")) {
+            ganador = jugadas[2];
+        } else if (jugadas[0].equals(jugadas[4]) && jugadas[0].equals(jugadas[8]) && !jugadas[0].equals("")) {
+            ganador = jugadas[0];
+        } else if (jugadas[2].equals(jugadas[4]) && jugadas[2].equals(jugadas[6]) && !jugadas[2].equals("")) {
+            ganador = jugadas[2];
         }
-        
-        String ganador = calcularGanador();
-        
-        if (ganador.equals("X")){
+
+        if (ganador.equals("X")) {
             JOptionPane.showMessageDialog(this, "El jugador 1 ha ganado.");
             return;
-        }
-        else if (ganador.equals("O")){
+        } else if (ganador.equals("O")) {
             JOptionPane.showMessageDialog(this, "El jugador 2 ha ganado.");
             return;
         }
-        
-        if (jugador.equals("X")) {
-            jugador = "O";            
-        }
-        else
-        {
-            jugador = "X";
-        }        
-    }
-    
-    private String calcularGanador() {
 
-        if (jugadas[0].equals(jugadas[1].equals(jugadas[2]))) {
-            return jugadas[0];
-        } else if (jugadas[3].equals(jugadas[4].equals(jugadas[5]))) {
-            return jugadas[3];
-        } else if (jugadas[6].equals(jugadas[7].equals(jugadas[8]))) {
-            return jugadas[6];
-        } else if (jugadas[0].equals(jugadas[3].equals(jugadas[6]))) {
-            return jugadas[0];
-        } else if (jugadas[1].equals(jugadas[4].equals(jugadas[7]))) {
-            return jugadas[1];
-        } else if (jugadas[2].equals(jugadas[5].equals(jugadas[8]))) {
-            return jugadas[2];
-        } else if (jugadas[0].equals(jugadas[4].equals(jugadas[8]))) {
-            return jugadas[0];
-        } else if (jugadas[2].equals(jugadas[4].equals(jugadas[6]))) {
-            return jugadas[2];
+        pantallaCompleta=true;
+        
+        for (int j = 0; j < 9; j++) {
+            if (jugadas[j] == "") {
+                pantallaCompleta = false;
+            }
         }
-        return null;
+        if (pantallaCompleta) {
+            JOptionPane.showMessageDialog(this, "Pantalla completa. No hay más jugadas disponibles.");
+            return;
+        }
+        if (jugador.equals("X")) {
+            jugador = "O";
+            txtpantalla.setText("JUGADOR 2");
+        } else {
+            jugador = "X";
+            txtpantalla.setText("JUGADOR 1");
+        }
     }
+
     /**
      * @param args the command line arguments
      */
@@ -337,15 +360,15 @@ public class JTicTacToe extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton0;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JTextField txtpantalla;
     // End of variables declaration//GEN-END:variables
 }
