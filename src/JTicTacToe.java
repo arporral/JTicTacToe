@@ -1,6 +1,9 @@
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
+
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -13,8 +16,8 @@ import java.math.RoundingMode;
  */
 public class JTicTacToe extends javax.swing.JFrame {
 
-    Boolean esJugador1 = true;
-    int[] jugadas = new int[9];
+    String jugador = "X";
+    String[] jugadas = new String[9];
 
     /**
      * Creates new form calculadora
@@ -50,7 +53,7 @@ public class JTicTacToe extends javax.swing.JFrame {
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButton0ActionPerformed(evt);
             }
         });
 
@@ -59,7 +62,7 @@ public class JTicTacToe extends javax.swing.JFrame {
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButton3ActionPerformed(evt);
             }
         });
 
@@ -68,7 +71,7 @@ public class JTicTacToe extends javax.swing.JFrame {
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jButton6ActionPerformed(evt);
             }
         });
 
@@ -77,7 +80,7 @@ public class JTicTacToe extends javax.swing.JFrame {
         jButton5.setForeground(new java.awt.Color(255, 255, 255));
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -95,7 +98,7 @@ public class JTicTacToe extends javax.swing.JFrame {
         jButton8.setForeground(new java.awt.Color(255, 255, 255));
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                jButton4ActionPerformed(evt);
             }
         });
 
@@ -104,7 +107,7 @@ public class JTicTacToe extends javax.swing.JFrame {
         jButton9.setForeground(new java.awt.Color(255, 255, 255));
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
+                jButton2ActionPerformed(evt);
             }
         });
 
@@ -113,7 +116,7 @@ public class JTicTacToe extends javax.swing.JFrame {
         jButton11.setForeground(new java.awt.Color(255, 255, 255));
         jButton11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton11ActionPerformed(evt);
+                jButton8ActionPerformed(evt);
             }
         });
 
@@ -122,7 +125,7 @@ public class JTicTacToe extends javax.swing.JFrame {
         jButton12.setForeground(new java.awt.Color(255, 255, 255));
         jButton12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton12ActionPerformed(evt);
+                jButton5ActionPerformed(evt);
             }
         });
 
@@ -189,55 +192,111 @@ public class JTicTacToe extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // Botón 0
+    private void jButton0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton0ActionPerformed
+        marcarJugada(0);
+    }//GEN-LAST:event_jButton0ActionPerformed
+    
     // Botón 1
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        txtpantalla.setText(txtpantalla.getText() + "1");
+        marcarJugada(1);
     }//GEN-LAST:event_jButton1ActionPerformed
-    
+
     // Botón 2
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        txtpantalla.setText(txtpantalla.getText() + "2");
-    }//GEN-LAST:event_jButton5ActionPerformed
-
-    // Botón 3
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        txtpantalla.setText(txtpantalla.getText() + "3");
-    }//GEN-LAST:event_jButton9ActionPerformed
-
-    // Botón 4
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        txtpantalla.setText(txtpantalla.getText() + "4");
+        marcarJugada(2);
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    // Botón 5
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        txtpantalla.setText(txtpantalla.getText() + "5");
-    }//GEN-LAST:event_jButton8ActionPerformed
-
-    // Botón 6
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        txtpantalla.setText(txtpantalla.getText() + "6");
-    }//GEN-LAST:event_jButton12ActionPerformed
-
-    // Botón 7
+    // Botón 3
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        txtpantalla.setText(txtpantalla.getText() + "7");
+        marcarJugada(3);
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    // Botón 8
+    // Botón 4
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        marcarJugada(4);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    // Botón 5
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        marcarJugada(5);
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    // Botón 6
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        marcarJugada(6);
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    // Botón 7
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        txtpantalla.setText(txtpantalla.getText() + "8");
+        marcarJugada(7);
     }//GEN-LAST:event_jButton7ActionPerformed
 
-    // Botón 9
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        txtpantalla.setText(txtpantalla.getText() + "9");
-    }//GEN-LAST:event_jButton11ActionPerformed
+    // Botón 8
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        marcarJugada(8);
+    }//GEN-LAST:event_jButton8ActionPerformed
 
     private void txtpantallaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtpantallaActionPerformed
-        // TODO add your handling code here:
+        if (jugador.equals("X")) {
+            txtpantalla.setText("JUGADOR 1");
+        }
+        else
+        {
+            txtpantalla.setText("JUGADOR 2");
+        }
     }//GEN-LAST:event_txtpantallaActionPerformed
 
+    private void marcarJugada(int i) {
+        if (jugadas[i].equals("")) {
+            jugadas[i] = jugador;
+        }
+        else 
+        {
+            JOptionPane.showMessageDialog(this, "Jugada incorrecta. Casilla ya ocupada.");
+        }
+        
+        String ganador = calcularGanador();
+        
+        if (ganador.equals("X")){
+            JOptionPane.showMessageDialog(this, "El jugador 1 ha ganado.");
+            return;
+        }
+        else if (ganador.equals("O")){
+            JOptionPane.showMessageDialog(this, "El jugador 2 ha ganado.");
+            return;
+        }
+        
+        if (jugador.equals("X")) {
+            jugador = "O";            
+        }
+        else
+        {
+            jugador = "X";
+        }        
+    }
+    
+    private String calcularGanador() {
+
+        if (jugadas[0].equals(jugadas[1].equals(jugadas[2]))) {
+            return jugadas[0];
+        } else if (jugadas[3].equals(jugadas[4].equals(jugadas[5]))) {
+            return jugadas[3];
+        } else if (jugadas[6].equals(jugadas[7].equals(jugadas[8]))) {
+            return jugadas[6];
+        } else if (jugadas[0].equals(jugadas[3].equals(jugadas[6]))) {
+            return jugadas[0];
+        } else if (jugadas[1].equals(jugadas[4].equals(jugadas[7]))) {
+            return jugadas[1];
+        } else if (jugadas[2].equals(jugadas[5].equals(jugadas[8]))) {
+            return jugadas[2];
+        } else if (jugadas[0].equals(jugadas[4].equals(jugadas[8]))) {
+            return jugadas[0];
+        } else if (jugadas[2].equals(jugadas[4].equals(jugadas[6]))) {
+            return jugadas[2];
+        }
+        return null;
+    }
     /**
      * @param args the command line arguments
      */
