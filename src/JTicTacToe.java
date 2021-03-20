@@ -14,7 +14,7 @@ public class JTicTacToe extends javax.swing.JFrame {
 
     String jugador = "X";
     String[] jugadas = new String[9];
-    boolean pantallaCompleta = false;
+    boolean pantallaCompleta;
 
     /**
      * Creates new form calculadora
@@ -24,6 +24,7 @@ public class JTicTacToe extends javax.swing.JFrame {
         for (int i = 0; i < 9; i++) {
             jugadas[i] = "";
         }
+        pantallaCompleta = false;
     }
 
     /**
@@ -194,77 +195,61 @@ public class JTicTacToe extends javax.swing.JFrame {
 
     // Botón 0
     private void jButton0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton0ActionPerformed
-        marcarJugada(0);
-        jButton0.setText(jugadas[0]);
-        calcularGanador();
+        marcarJugada(0,jButton0);
     }//GEN-LAST:event_jButton0ActionPerformed
 
     // Botón 1
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        marcarJugada(1);
-        jButton1.setText(jugadas[1]);
-        calcularGanador();
+        marcarJugada(1,jButton1);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     // Botón 2
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        marcarJugada(2);
-        jButton2.setText(jugadas[2]);
-        calcularGanador();
+        marcarJugada(2,jButton2);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     // Botón 3
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        marcarJugada(3);
-        jButton3.setText(jugadas[3]);
-        calcularGanador();
+        marcarJugada(3,jButton3);        
     }//GEN-LAST:event_jButton3ActionPerformed
 
     // Botón 4
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        marcarJugada(4);
-        jButton4.setText(jugadas[4]);
-        calcularGanador();
+        marcarJugada(4,jButton4);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     // Botón 5
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        marcarJugada(5);
-        jButton5.setText(jugadas[5]);
-        calcularGanador();
+        marcarJugada(5,jButton5);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     // Botón 6
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        marcarJugada(6);
-        jButton6.setText(jugadas[6]);
-        calcularGanador();
+        marcarJugada(6,jButton6);
     }//GEN-LAST:event_jButton6ActionPerformed
 
     // Botón 7
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        marcarJugada(7);
-        jButton7.setText(jugadas[7]);
-        calcularGanador();
+        marcarJugada(7,jButton7);
     }//GEN-LAST:event_jButton7ActionPerformed
 
     // Botón 8
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        marcarJugada(8);
-        jButton8.setText(jugadas[8]);
-        calcularGanador();
+        marcarJugada(8,jButton8);             
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void txtpantallaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtpantallaActionPerformed
 
     }//GEN-LAST:event_txtpantallaActionPerformed
-
-    private void marcarJugada(int i) {
+    
+    private void marcarJugada(int i, javax.swing.JButton jButton) {
         if (pantallaCompleta) {
             JOptionPane.showMessageDialog(this, "Pantalla completa. No hay más jugadas disponibles.");
         } else {
             if (jugadas[i].equals("")) {
                 jugadas[i] = jugador;
+                jButton.setText(jugadas[i]);
+                calcularGanador();
             } else {
                 JOptionPane.showMessageDialog(this, "Jugada incorrecta. Casilla ya ocupada.");
             }
@@ -294,19 +279,22 @@ public class JTicTacToe extends javax.swing.JFrame {
 
         if (ganador.equals("X")) {
             JOptionPane.showMessageDialog(this, "El jugador 1 ha ganado.");
+            pantallaCompleta=true;
             return;
         } else if (ganador.equals("O")) {
             JOptionPane.showMessageDialog(this, "El jugador 2 ha ganado.");
+            pantallaCompleta=true;
             return;
         }
 
         pantallaCompleta=true;
         
         for (int j = 0; j < 9; j++) {
-            if (jugadas[j] == "") {
+            if (jugadas[j].equals("")) {
                 pantallaCompleta = false;
             }
         }
+        
         if (pantallaCompleta) {
             JOptionPane.showMessageDialog(this, "Pantalla completa. No hay más jugadas disponibles.");
             return;
