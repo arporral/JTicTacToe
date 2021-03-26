@@ -1,5 +1,6 @@
 
 import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.YES_NO_OPTION;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -12,7 +13,7 @@ import javax.swing.JOptionPane;
  */
 public class JTicTacToe extends javax.swing.JFrame {
 
-    String jugador = "X";
+    String jugador;
     String[] jugadas = new String[9];
     boolean pantallaCompleta;
 
@@ -25,6 +26,7 @@ public class JTicTacToe extends javax.swing.JFrame {
             jugadas[i] = "";
         }
         pantallaCompleta = false;
+        jugador = "X";
     }
 
     /**
@@ -243,8 +245,11 @@ public class JTicTacToe extends javax.swing.JFrame {
     }//GEN-LAST:event_txtpantallaActionPerformed
     
     private void marcarJugada(int i, javax.swing.JButton jButton) {
-        if (pantallaCompleta) {
-            JOptionPane.showMessageDialog(this, "Pantalla completa. No hay más jugadas disponibles.");
+        if (pantallaCompleta) {            
+            if (JOptionPane.showConfirmDialog(this, "No hay más jugadas disponibles. Desea volver a empezar?", "Pantalla completa", YES_NO_OPTION) == 0) {
+                this.dispose();
+                empezarJuego();                
+            }            
         } else {
             if (jugadas[i].equals("")) {
                 jugadas[i] = jugador;
@@ -277,14 +282,22 @@ public class JTicTacToe extends javax.swing.JFrame {
             ganador = jugadas[2];
         }
 
-        if (ganador.equals("X")) {
-            JOptionPane.showMessageDialog(this, "El jugador 1 ha ganado.");
-            pantallaCompleta=true;
-            return;
+        if (ganador.equals("X")) {            
+            if (JOptionPane.showConfirmDialog(this, "El jugador 1 ha ganado. Desea volver a empezar?", "Ganó jugador 1", YES_NO_OPTION) == 0) {
+                this.dispose();
+                empezarJuego();
+            } else {
+                pantallaCompleta = true;
+                return;
+            }
         } else if (ganador.equals("O")) {
-            JOptionPane.showMessageDialog(this, "El jugador 2 ha ganado.");
-            pantallaCompleta=true;
-            return;
+            if (JOptionPane.showConfirmDialog(this, "El jugador 2 ha ganado. Desea volver a empezar?", "Ganó jugador 2", YES_NO_OPTION) == 0) {
+                this.dispose();
+                empezarJuego();
+            } else {
+                pantallaCompleta = true;
+                return;
+            }
         }
 
         pantallaCompleta=true;
@@ -308,6 +321,16 @@ public class JTicTacToe extends javax.swing.JFrame {
         }
     }
 
+    public static void empezarJuego() {
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new JTicTacToe().setVisible(true);
+            }
+        });
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -339,12 +362,13 @@ public class JTicTacToe extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+        /*java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
                 new JTicTacToe().setVisible(true);
             }
-        });
+        });*/
+        empezarJuego();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
