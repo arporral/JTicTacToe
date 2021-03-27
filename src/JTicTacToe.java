@@ -1,4 +1,5 @@
 
+import java.util.Arrays;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.YES_NO_OPTION;
 
@@ -22,9 +23,10 @@ public class JTicTacToe extends javax.swing.JFrame {
      */
     public JTicTacToe() {
         initComponents();
-        for (int i = 0; i < 9; i++) {
-            jugadas[i] = "";
-        }
+                
+        // expresión lambda para inicializar el array de jugadas.
+        Arrays.setAll(jugadas, i -> ""); 
+                
         pantallaCompleta = false;
         jugador = "X";
     }
