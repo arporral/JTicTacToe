@@ -26,7 +26,7 @@ public class JTicTacToe extends javax.swing.JFrame {
                 
         // expresión lambda para inicializar el array de jugadas.
         Arrays.setAll(jugadas, i -> ""); 
-                
+                                
         pantallaCompleta = false;
         jugador = "X";
     }
